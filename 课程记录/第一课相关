@@ -1,0 +1,7 @@
+1：配置git相关信息:
+中国码云网站：https://gitee.com/
+登录：https://gitee.com/login
+注册：https://gitee.com/signup
+账户是：xuchengfeifei@163.com 密码是:888*er
+2:在项目根目录下创建：README.md，输入任意描述内容即可
+3：在项目根目录下创建：.gitignore文件，用来过滤上传的文件定义信息。
