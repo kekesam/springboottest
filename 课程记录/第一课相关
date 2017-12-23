@@ -5,3 +5,15 @@
 账户是：xuchengfeifei@163.com 密码是:888*er
 2:在项目根目录下创建：README.md，输入任意描述内容即可
 3：在项目根目录下创建：.gitignore文件，用来过滤上传的文件定义信息。
+
+git init
+git status
+git add .
+git commit -m 'ok'
+git remote add origin https://gitee.com/kekesam/mkshop_ssm.git
+git branch
+git pull
+git push -u origin master或者
+git push -u -f origin master -f强制推送
+git push -u origin https://gitee.com/kekesam/mkshop_ssm.git
+h
