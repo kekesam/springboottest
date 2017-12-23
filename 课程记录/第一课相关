@@ -16,4 +16,3 @@ git pull
 git push -u origin master或者
 git push -u -f origin master -f强制推送
 git push -u origin https://gitee.com/kekesam/mkshop_ssm.git
-h
