@@ -16,3 +16,13 @@ git pull
 git push -u origin master或者
 git push -u -f origin master -f强制推送
 git push -u origin https://gitee.com/kekesam/mkshop_ssm.git
+
+查看当前分支：
+git branch
+分支开发主干发布,生成一个v1.0的分支。意思是在origin/master分支上生成v1.0的子分支。
+git checkout -b v1.0 origin/master
+查看分支：
+git branch
+推送数据到当前分支。
+git push origin HEAD -u
+
