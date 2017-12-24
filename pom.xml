@@ -244,6 +244,17 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
+        <!-- spring session 单点登录 -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
 
         <!--commons 工具类-->
         <dependency>
@@ -261,11 +272,6 @@
             <artifactId>commons-io</artifactId>
             <version>2.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -273,6 +279,7 @@
             <version>1.16.18</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -299,6 +306,35 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources.${deploy.type}</directory>
+                <excludes>
+                    <exclude>*.jsp</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <finalName>mkshop</finalName>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <deploy.type>dev</deploy.type>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <deploy.type>prod</deploy.type>
+            </properties>
+        </profile>
+    </profiles>
 </project>

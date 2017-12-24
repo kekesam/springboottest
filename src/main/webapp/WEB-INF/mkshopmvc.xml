@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- 二期温馨提示,springmvc扫描包指定到controller，防止重复扫描 -->
+    <context:component-scan base-package="com.mk.web" annotation-config="true"/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10485760"/> <!-- 10m -->
+        <property name="maxInMemorySize" value="4096" />
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+
+    <!--freemaker视图解析 controller -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="order" value="2"></property>
+        <property name="cache" value="false"></property>
+        <property name="suffix" value=".html"></property>
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request"></property>
+        <property name="exposeRequestAttributes" value="true"></property>
+        <property name="exposeSessionAttributes" value="true"></property>
+        <property name="exposeSpringMacroHelpers" value="true"></property>
+    </bean>
+
+    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/pages/" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">1</prop>
+                <prop key="tag_syntax">auto_detect</prop><!-- square_bracket|auto_detect设置标签类型 两种：[] 和 <> 。[] 这种标记解析要快些 -->
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="output_encoding">UTF-8</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="date_format">yyyy年MM月dd日</prop>
+                <prop key="time_format">HH:mm:ss</prop>
+                <prop key="boolean_format">true,false</prop>
+                <prop key="whitespace_stripping">true</prop>
+                <prop key="url_escaping_charset">UTF-8</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="number_format">#.###</prop><!-- 设置数字格式 以免出现 000.00 -->
+                <prop key="classic_compatible">true</prop><!-- 可以满足一般需要。默认情况变量为null则替换为空字符串，如果需要自定义，写上${empty!"EmptyValue of fbysss"}的形式即可  -->
+                <prop key="template_exception_handler">html_debug</prop><!--  ignore,debug,html_debug,rethrow-->
+            </props>
+        </property>
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+</beans>
