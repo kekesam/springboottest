@@ -9,10 +9,10 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <mybatis:scan base-package="com.mk.dao"></mybatis:scan>
     <!--<bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mk.dao"/>
     </bean>-->
+    <mybatis:scan base-package="com.mk.dao"></mybatis:scan>
     <context:property-override location="classpath*:db.properties"></context:property-override>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"></bean>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

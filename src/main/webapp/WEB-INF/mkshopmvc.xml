@@ -7,8 +7,8 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <!-- 二期温馨提示,springmvc扫描包指定到controller，防止重复扫描 -->
-    <context:component-scan base-package="com.mk.web" annotation-config="true"/>
+
+    <context:component-scan base-package="com.mk.web"/>
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -37,7 +37,7 @@
     </bean>
 
     <!--freemaker视图解析 controller -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="order" value="2"></property>
         <property name="cache" value="false"></property>
         <property name="suffix" value=".html"></property>
