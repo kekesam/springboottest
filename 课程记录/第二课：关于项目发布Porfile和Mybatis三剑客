@@ -1,0 +1,19 @@
+Mybatis三剑客：
+1：Mybatis反向生成Bean,Dao,Mapper
+
+   1：创建库和数据表
+   2: generatorConfig.xml放在resources下方
+   3: 需要mysql的驱动包：
+     \src\main\mysqldiver\mysql-connector-java-5.1.10.jar
+   4:配置数据连接定义：db.properties放在resources下方
+     dataSource.driverClass=com.mysql.jdbc.Driver
+     dataSource.jdbcUrl=jdbc:mysql://localhost:3306/mkshop?characterEncoding=utf-8
+     dataSource.user=root
+     dataSource.password=mkxiaoer
+   5:配置generatorConfig.xml
+   6:打开pom.xml去复制粘贴
+   7:点击maven看效果
+2：Mybatis代码联动Mybat-plugin
+
+
+3：Mybatis的分页封装 Page PageRequest 求总数，当前，下
