@@ -10,7 +10,7 @@
     <context:component-scan base-package="com.mk.service"/>
     <context:component-scan base-package="com.mk.commons"/>
     <aop:aspectj-autoproxy/>
-
+    <!---23423423-->
     <!--<import resource="applicationContext-session.xml"/>-->
     <import resource="applicationContext-datasource.xml"/>
     <import resource="applicationContext-task.xml"/>
