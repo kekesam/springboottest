@@ -1,0 +1,63 @@
+1：配置git相关信息:
+中国码云网站：https://gitee.com/
+登录：https://gitee.com/login
+注册：https://gitee.com/signup
+账户是：xuchengfeifei@163.com 密码是:888*er
+2:在项目根目录下创建：README.md，输入任意描述内容即可
+3：在项目根目录下创建：.gitignore文件，用来过滤上传的文件定义信息。
+
+git init
+
+git status
+git add .
+git commit -m 'ok'
+git remote add origin https://gitee.com/kekesam/mkshop_ssm.git
+git branch
+git pull
+git push -u origin master或者
+git push -u -f origin master -f强制推送
+git push -u origin https://gitee.com/kekesam/mkshop_ssm.git
+
+
+
+
+查看当前分支：
+git branch
+分支开发主干发布,生成一个v1.0的分支。意思是在origin/master分支上生成v1.0的子分支。
+git checkout -b v1.0 origin/master
+查看分支：
+git branch
+推送数据到当前分支。
+git push origin HEAD -u
+切换分支：
+git checkout v1.0
+git checkout v2.0
+git checkout v3.0
+git checkout master
+
+下载分支的代码
+git clone -b v2.0 https://gitee.com/kekesam/mkshop_ssm.git
+git clone -b v2.0 https://gitee.com/kekesam/mkshop_ssm.git
+git clone  master https://gitee.com/kekesam/mkshop_ssm.git
+
+
+
+
+2:安装mybtais定位插件：mybatis-plugins
+
+
+
+
+3: 环境隔离打包命令：
+mvn clean package -Dmaven.test.skip=true -Pprod
+mvn clean package -Dmaven.test.skip=true -Pdev
+mvn clean package -Dmaven.test.skip=true -Pbeta
+
+mvn clean install -Dmaven.test.skip=true -Pprod
+mvn clean install -Dmaven.test.skip=true -Pdev
+mvn clean install -Dmaven.test.skip=true -Pbeta
+
+
+
+
+

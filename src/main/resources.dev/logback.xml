@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+
+    <!--用来定义变量值的标签，<property> 有两个属性，name和value；其中name的值是变量的名称，value的值时变量定义的值。通过<property>定义的值会被插入到logger上下文中。定义变量后，可以使“${}”来使用变量。-->
+    <property name="info_tip" value="【keketip====】" />
+    <!---
+        日志输出==(级别+类型)+内容（格式）
+        appender 是定义日志的类型
+        控制台输出 ConsoleAppender-==用于开发阶段
+        Rolling滚动输出，根据时间自动产生日志文件 RollingFileAppender  生产环节中
+    -->
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoding>UTF-8</encoding>
+        <encoder>
+            <pattern>${info_tip}--console--%contextName--[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+    <appender name="mk" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>d:/mklog/mk.log</File>
+       <!-- <File>/developer/apache-tomcat-7.0.73/logs/mk.log</File>-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/developer/apache-tomcat-7.0.73/logs/mk.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <append>true</append>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${info_tip}[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.mk"  level="DEBUG" >
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="org.mybatis" level="DEBUG">
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="org.springframework" level="DEBUG">
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="com.mongodb" level="DEBUG">
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="org.springframework.data.mongodb" level="DEBUG">
+        <appender-ref ref="console"/>
+    </logger>
+    <!--没有配置的都在这里寻找打印级别日志-->
+    <root level="DEBUG">
+        <appender-ref ref="console"/>
+    <appender-ref ref="error"/>
+</root>
+
+</configuration>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths tablesaw-enhanced">
+	<head>
+		<style type="text/css" id="alertifyCSS">
+			/* style.css */
+		</style>
+		<title>官方在线商城-电子数码</title>
+		<meta name="renderer" content="webkit">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+		<meta name="generator" content="MetInfo 5.3.19" data-variable="https://show.metinfo.cn/muban/res018/323/,cn,10001,,10001,res018">
+		<meta name="description" content="网站描述，一般显示在搜索引擎搜索结果中的描述文字，用于介绍网站，吸引浏览者点击。">
+		<meta name="keywords" content="官方在线商城">
+		
+		<link href="https://show.metinfo.cn/muban/res018/323/favicon.ico" rel="shortcut icon" type="image/x-icon">
+		<link rel="stylesheet" href="css/common.css">
+		<style type="text/css">
+			@charset "UTF-8";
+
+/* 登录模式选择 */
+.login-choose{background-image:url(../img/shop_login_bg.jpg);background-size:cover;background-repeat:no-repeat;background-position:center;}
+.login-choose .login-member{background-color:rgba(255,255,255,.8);}
+.login-choose .login-member input{height:46px;}
+@media (min-width:480px){
+	.login-choose .login-member{width:400px;padding:30px;}
+}
+@media (max-width:767px){
+	.login-choose .login-member{padding:30px 20px;}
+}
+
+/* 选项卡 */
+@media (max-width:767px){
+	.nav-tabs .nav-link{padding:5px;}
+	.nav-tabs.fixed{position:fixed;left:0;top:0;z-index:10;}
+}
+
+/* 订单列表 */
+.shop-order-lists{border:1px solid #E4EAEC;margin-bottom:20px;padding:0px 10px 10px;}
+.shop-order-lists .shop-order-top{border-bottom:1px solid #E4EAEC;margin:0px -10px;margin-bottom:20px;padding-top:20px;}
+.shop-order-lists .ting{padding-bottom:20px;}
+.shop-order-lists .ting h4{font-size:22px;text-shadow:none;}
+.shop-order-lists .ting h4 span{border-radius:0px;}
+.shop-order-lists .ting .info{margin-right:10px;display:block;}
+.shop-order-lists .ting .price{font-size:26px;}
+.shop-order-lists .shop-order-bottom .media-body p:last-child{margin-bottom:0;}
+.shop-order-lists .media-heading{text-shadow:none;font-size:14px;}
+.shop-order-lists .media-heading a{color:#526069;text-decoration:none;}
+.shop-order-lists .media-heading a:hover{color:#000;}
+.shop-order-lists .media-left{display:table-cell;}
+.shop-order-lists .shop-order-bottom .btn{display:block;margin-top:15px;}
+.shop-order-lists.state-1{border-color:#f96868;}
+.shop-order-lists.state-1 .shop-order-top{border-color:#f96868;}
+.shop-order-lists.state-1 .ting h4{color:#f96868;}
+.shop-order-lists.state-0 .ting h4{color:#A3AFB7;}
+.shop-order-lists.state-3 .ting h4{color:#70A532;}
+@media (min-width:480px){
+	.shop-order-lists .shop-order-bottom .btn{margin:0;}
+}
+@media (min-width:992px){
+	.shop-order-lists{margin-bottom:30px;padding:0px 20px 20px;}
+	.shop-order-lists .shop-order-top{margin:0px -15px;margin-bottom:20px;}
+	.shop-order-lists .ting .info{display:inline;}
+	.shop-order-more-btn{margin:0px 10px;}
+}
+@media (max-width:479px){
+	.shop-order-lists{margin-bottom:10px;}
+	.shop-order-lists .ting:first-child{padding-bottom:0;}
+}
+
+/* 订单详情 */
+.shop-order-check .shop-order-type-btn a.btn{display:inline-block;margin-left:15px;}
+.shop-order-check .shop-order-type-btn a.btn:first-child{margin:0;}
+.shop-order-check .shop-order-type .state_txt{height:35px;line-height:35px;margin-bottom:0px;}
+.shop-order-check .shop-order-type .state_txt span{position:relative;bottom:7px;}
+.shop-order-check .order-info{padding-top:30px;padding-bottom:30px;}
+.order-info .order-info-name{color: #777;}
+@media (max-width: 479px){
+	.shop-order-check .shop-order-type-btn{margin-top:15px;}
+	.shop-order-check .shop-order-type-btn a.btn{width:48%;display:block;margin:0;float:left;}
+	.shop-order-check .shop-order-type-btn a.btn:first-child{margin-right:4%;}
+	.order-goods .table td{padding: 5px;}
+	.order-goods .media .media-left{display: table-cell;padding-right: 5px;}
+}
+.shop-order-check ul.goods-message-list{list-style:none;padding:0px;margin-bottom:0;}
+.table td a{text-decoration:none;}
+
+/*pay-order*/
+#balanceinput .form-group{max-width:300px;}
+.pay-order-mode-body>li a.block{border: 1px solid  #eee;}
+.pay-order-top .pay-order-price{margin-top:10px;}
+@media (min-width:768px){
+	.pay-order-top h1{font-size:24px;}
+	.pay-order-top .pay-order-price{margin-top:20px;}
+	#balanceinput button.btn{display:inline-block;width:auto;}
+}
+@media (max-width:767px){
+	.pay-order-top{padding-top: 30px;}
+	.pay-order-top h1{font-size:20px;padding-top:30px;padding-bottom:20px;}
+}
+@media (max-width:479px){
+	.pay-order-top .dropdown-toggle{display: inline-block;margin-top: 10px;}
+	.pay-order-mode-body{margin: 0 -5px;}
+	.pay-order-mode-body>li{margin-bottom: 10px;padding: 0 5px;}
+}
+#payment-weixin-modal .modal-body img{margin:0px auto;}
+
+/*pay*/
+.pay-form label.example-title,
+.pay-form h3.example-title{font-size:18px;color:#37474f;font-weight:normal;text-shadow:none;}
+.pay-form .example-wrap{margin-top:20px;margin-bottom:20px;}
+.pay-form .example-wrap:nth-of-type(1){margin-top:0;}
+.pay-body .example .form-group .example-title{margin-bottom:10px;}
+.pay-body .example .form-control-label{line-height:36px;}
+.pay-body input.labelauty+label{padding:13px 40px;display:block;text-align:center;}
+@media (min-width:480px){
+	.pay-form .example-wrap{margin-top:40px;margin-bottom:40px;}
+	.pay-body .example #invoice-body{width:400px;}
+	.pay-body .example .pay-set-body .pull-xs-left{width:auto;margin-right:30px;float:left!important;}
+}
+@media (max-width:479px){
+	.pay-body .example{margin-top:10px;margin-bottom:10px;}
+	.pay-body .example .pay-set-body{margin-left:-10px;margin-right:-10px;}
+	.pay-body .example .pay-set-body .pull-xs-left{width:50%;padding:0 10px;}
+	.pay-body .example .pay-set-body .pull-xs-left input.labelauty+label{padding-left:10px;padding-right:10px;}
+	.pay-submit .btn{padding:10px 20px!important;margin-top:10px;}
+}
+.pay-body #pay-total{font-size:26px;}
+.pay-goods-body{padding:20px;border-bottom:1px solid #E4EAEC;}
+.pay-goods-body:last-child{border-bottom:none;}
+.pay-goods-body .media-heading{font-size:14px;}
+.pay-goods-body .media-left{display:table-cell;}
+.pay-goods-body .p-message{max-width:400px;}
+.pay-goods-body .p-num{display:block;}
+@media (min-width:768px){
+	.pay-goods-body .p-num{display:inline;}
+}
+@media (max-width:479px){
+	.pay-goods-body{padding:15px 10px;}
+	.pay-goods-body .media-left{padding-right:10px;}
+}
+
+/* 收货地址 */
+.addr-list{border:1px solid #E4EAEC;height:125px;overflow:hidden;}
+.addr-list{position:relative;padding-right:30px;}
+.addr-list .addr-set{position:absolute;right:5px;top:5px;display:none;}
+.addr-list .addr-set button{border:none;}
+.addr-list .addr-set button i{margin-right:0px;}
+.addr-body .active .addr-set{display:block;}
+.addr-body li .addr-list{border-radius:0px;height:135px;}
+.addr-body li .addr-list h4{margin-bottom:10px;margin-top:5px;}
+.addr-body li .addr-list.hover .addr-set{display:block;}
+.addr-body li .addr-list.hover .addr-set button{background-color:transparent;}
+.addr-body li .addr-list.hover .addr-set button i{color:#76838F;}
+.addr-body li .addr-list:hover,
+.addr-body li .addr-list:focus{background:#fff;}
+.addr-body li .addr-list:hover{border-color:#f96868;}
+@media (min-width:1200px){
+	.addr-body li .addr-list.hover{border-color:#f96868;}
+}
+
+/* 支付方式 */
+.pay-form input.labelauty:checked+label{background-color:transparent;border:1px solid #f96868;color:#f96868;border-radius:0px;}
+.pay-form input.labelauty:checked:not([disabled]) + label:hover{background-color:transparent;color:#f96868;}
+.pay-form input.labelauty+label{border:1px solid #e4eaec;padding:12px 40px;color:#37474F;background-color:transparent;border-radius:0px;}
+.pay-form input.labelauty+label>span.labelauty-checked-image,
+.pay-form input.labelauty+label>span.labelauty-unchecked-image{display:none;}
+.pay-form input.labelauty:checked+label>span.labelauty-unchecked-image,
+.pay-form input.labelauty:not(:checked)+label>span.labelauty-checked-image{display:none;}
+.pay-form input.labelauty+label>span.labelauty-checked-image+span.labelauty-checked,
+.pay-form input.labelauty+label>span.labelauty-unchecked-image+span.labelauty-unchecked{margin-left:0px;}
+
+/* 提交订单页面优惠券选择 */
+.pay-discount-body input.labelauty+label{padding:10px;}
+@media (max-width:479px){
+	.pay-discount-body{margin-left:-10px;margin-right:-10px;}
+	.pay-discount-body li{padding-left:10px;padding-right:10px;margin-bottom:10px;}
+}
+
+/*cart*/
+.cart-list table{margin-bottom:0px;}
+.cart-list table td{vertical-align:middle!important;}
+.cart-list table td a.avatar{width:80px;}
+.cart-list table td a.avatar img{border-radius:0px;}
+.cart-list table td h4.media-heading{font-size:14px;margin-top:5px;}
+/*.cart-list table td h4.media-heading a{ text-decoration:none; }*/
+.cart-list table td .cart-remove{font-size:20px;color:#CCD5DB;}
+.cart-list .bootstrap-touchspin .input-group-btn:first-child>.btn{margin-right:-3px;}
+.cart-list .bootstrap-touchspin .input-group-btn:last-child>.btn{margin-left:-2px;}
+.cart-total{padding-top:20px;padding-bottom:20px;}
+.cart-total .total-val{font-size:20px;}
+.cart-total a.btn{display:block;margin-top:10px;}
+@media (min-width:480px){
+	.cart-total .total-val{font-size:24px;}
+	.cart-total a.btn{display:inline-block;margin-top:0px;}
+}
+@media (min-width:992px){
+	.cart-total .cartall{margin-left:20px;}
+}
+@media (max-width:991px){
+	.cart-list .buynum{width:auto;max-width:100px;margin: auto;}
+	.cart-list .buynum .bootstrap-touchspin .input-group-btn .btn{padding:0 5px;height:25px;}
+	.cart-list .buynum .buynum-input{height:25px;}
+}
+/* 购物车列表-手机端 */
+@media (max-width:767px){
+	.cart-mobile .cart-remove{font-size:22px;color:#CCD5DB;}
+	.cart-mobile .media-left{width: 30%;}
+	.cart-mobile .shop-para{min-height: 1.5em;}
+	.cart-mobile .cart-remove{margin-top: -5px;}
+}
+@media (max-width:479px){
+	.cart-mobile:not(:first-child){margin-top: 15px;}
+	.cart-mobile .buynum{max-width:90px;}
+	.cart-mobile .cart-remove{font-size: 18px;margin-top: 0;}
+}
+@media (max-width:399px){
+	.cart-mobile:not(:first-child){margin-top: 10px;}
+	.cart-mobile .media{padding: 0 !important;}
+	.cart-mobile .media-heading{font-size: 14px;}
+	.cart-mobile .buynum{max-width:70px;}
+	.cart-mobile .shop-para,.cart-mobile .shop-purchase{font-size: 12px;}
+}
+
+/* 购物车-没有商品 */
+.cart-not i.icon{font-size:120px;}
+.cart-not .cart-not-title{font-size:25px;}
+@media (min-width:992px){
+	.cart-not .cart-not-title{font-size:35px;}
+}
+@media (max-width:991px){
+	.cart-not .iconbox{margin-bottom:20px;}
+}
+/* 购物车-优惠券 */
+.shop-cart .shoppro-discount>label{font-size: 16px;}
+@media (min-width:768px){
+	.shop-cart .shoppro-discount{margin: 0;margin-bottom: 5px;}
+	.shop-cart .shoppro-discount>label{width: 100px;text-align: center;}
+}
+@media (max-width:767px){
+	.shop-cart .shoppro-discount{margin-bottom: 10px;}
+}
+
+/*tocar*/
+.tocar-info .media-left{display:table-cell!important;}
+.tocar-info a.btn{width:auto;display:inline-block;}
+.tocar-btn-body{margin-top:20px;}
+@media (min-width:768px){
+	.tocar-btn-body{margin-top:40px;}
+}
+@media (max-width:349px){
+	.tocar-info a.btn{width:100%;display:block;margin-bottom:10px;}
+}
+
+/* 更多产品 */
+@media (max-width:767px){
+	.moregoods-list li{padding:0 5px;margin-bottom:10px;}
+}
+
+/* 物流跟踪信息 */
+.logistics-tracks-popover{height:400px!important;}
+.logistics-list li{list-style:none;margin-left:10px;border-left:1px solid #a3afb7;padding-left:20px;padding-right:10px;padding-bottom:15px;position:relative;}
+.logistics-list li:last-child{padding-bottom:0;}
+.logistics-list li:first-child p{color:#46be8a;}
+.logistics-list li:first-child:before{width:20px;height:20px;border:3px solid  #BFEDD8;left:-11px;top:0;background:#46be8a;}
+.logistics-list li:before{content:'';width:11px;height:11px;display:block;float:left;background:#a3afb7;position:absolute;left:-6px;top:6px;-webkit-border-radius:100%;-moz-border-radius:100%;-ms-border-radius:100%;-o-border-radius:100%;border-radius:100%;}
+.logistics-list p{margin:0;padding-bottom:15px;border-bottom:1px solid  #eee;}
+.logistics-list span{display:inline-block;margin-top:5px;}
+
+/* 我的优惠券 */
+.shop-discount-list li .pricing-tips p{line-height:1.8;}
+.shop-discount-list li .pricing-features li{color:#999;}
+[class*=avalible-list-modal-] .modal-body{padding:20px 25px;}
+.goods-list li{margin-bottom:15px;padding:0 10px;}
+@media (max-width:767px){
+	.shop-discount-list li{margin-bottom:10px;}
+	[class*=avalible-list-modal-] .modal-body{padding:10px 20px 0;}
+	.goods-list li{margin-bottom:10px;padding:0 5px;}
+	.goods-list li .card-block{padding: 5px !important;}
+}
+
+/* 我的收藏 */
+.shop-favorite{padding:30px;}
+@media (max-width:1199px){
+	.shop-favorite-list li .overlay-panel{opacity: 1 !important;-moz-opacity: 1;filter: alpha(opacity=100);}
+	.shop-favorite-list li .favorite-remove{position: absolute;right: 0;top: 0;}
+}
+@media (max-width:991px){
+	.shop-favorite{padding:20px;}
+	.shop-favorite-list li{padding:0 10px;}
+}
+@media (max-width:767px){
+	.shop-favorite{padding:10px;}
+	.shop-favorite-list{padding:0 10px;}
+	.shop-favorite-list li{padding:0 5px;margin-bottom:10px;}
+}
+		</style>
+	</head>
+
+	<body>
+<header>
+    <nav class="navbar navbar-default box-shadow-none met-nav">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header pull-xs-left">
+                    <a href="https://show.metinfo.cn/muban/res018/323/index.php?lang=cn" class="met-logo vertical-align block pull-xs-left p-y-5" title="电子数码">
+                        <h1 hidden="">加入购物车-电子数码</h1>
+                        <div class="vertical-align-middle"><img src="../upload/201705/logo.png" alt="电子数码"></div>
+                    </a>
+                </div>
+                <button type="button" class="navbar-toggler hamburger hamburger-close collapsed p-x-5 met-nav-toggler" data-target="#met-nav-collapse" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="hamburger-bar"></span>
+                </button>
+
+                <button type="button" class="navbar-toggler collapsed m-0 p-x-5 met-head-user-toggler" data-target="#met-head-user-collapse" data-toggle="collapse">
+                    <i class="icon wb-user-circle" aria-hidden="true"></i>
+                    <i class="icon wb-user" aria-hidden="true"></i>
+                </button>
+
+                <div class="collapse navbar-collapse navbar-collapse-toolbar pull-md-right p-0" id="met-head-user-collapse">
+
+<ul class="navbar-nav vertical-align p-l-0 m-b-0 met-head-user">
+
+    <li class=" text-xs-center vertical-align-middle animation-slide-top">
+        <a href="../member/login.php?lang=cn" class="btn btn-squared btn-primary btn-outline m-r-10">登录</a>
+        <a href="../member/register_include.php?lang=cn" class="btn btn-squared btn-success">注册</a>
+    </li>
+
+    <li class="dropdown vertical-align-middle">
+        <a href="javascript:void(0)" title="购物车" class="dropdown-item topcart-btn" data-toggle="dropdown">
+            <i class="icon wb-shopping-cart" aria-hidden="true"></i>
+            购物车
+            <span class="tag tag-pill up tag-danger topcart-goodnum font-size-12">2</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media animation-slide-bottom10">
+            <li class="dropdown-menu-header">
+                <h5>购物车</h5>
+                <span class="tag tag-round tag-danger font-size-12">共 <span class="topcart-goodnum">2</span> 件商品</span>
+            </li>
+            <li class="list-group" role="presentation">
+                <div data-role="container">
+                    <div data-role="content" id="topcart-body"><div class="list-group-item" role="menuitem"><div class="media"><div class="media-left p-r-10"><a class="avatar text-middle" target="_blank" href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=44"><img class="img-responsive" src="../include/thumb.php?dir=upload/201705/thumb/1495851624.jpg&amp;x=40&amp;y=40" alt=""></a></div><div class="media-body"><div class="pull-xs-right text-xs-right"><span>1499.00元 x 2</span><p><a href="https://show.metinfo.cn/muban/res018/323/shop/cart.php?lang=cn&amp;a=dodel&amp;id=0" class="topcart-remove"><i class="icon wb-trash" aria-hidden="true"></i></a></p></div><h6 class="media-heading font-weight-unset"><a target="_blank" href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=44">坚果Pro</a></h6><p></p></div></div></div><div class="list-group-item" role="menuitem"><div class="media"><div class="media-left p-r-10"><a class="avatar text-middle" target="_blank" href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=34"><img class="img-responsive" src="../include/thumb.php?dir=upload/201705/1494318045.jpg&amp;x=40&amp;y=40" alt=""></a></div><div class="media-body"><div class="pull-xs-right text-xs-right"><span>199.00元 x 1</span><p><a href="https://show.metinfo.cn/muban/res018/323/shop/cart.php?lang=cn&amp;a=dodel&amp;id=2" class="topcart-remove"><i class="icon wb-trash" aria-hidden="true"></i></a></p></div><h6 class="media-heading font-weight-unset"><a target="_blank" href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=34">入耳式耳机</a></h6><p></p></div></div></div></div>
+                </div>
+            </li>
+            <div class="dropdown-menu-footer cover p-y-10 p-x-20">
+                <div><a href="https://show.metinfo.cn/muban/res018/323/shop/cart.php?lang=cn" class="btn btn-squared btn-danger pull-xs-right">去购物车结算</a></div>
+                <span class="red-600 font-size-18 topcart-total">3197.00元</span>
+            </div>
+        </ul>
+    </li>
+
+</ul>
+
+                </div>
+
+                <div class="collapse navbar-collapse navbar-collapse-toolbar pull-md-right p-0" id="met-nav-collapse">
+
+<ul class="nav navbar-nav navlist">
+	<li class="nav-item"><a href="https://show.metinfo.cn/muban/res018/323/index.php?lang=cn" title="首页" class="nav-link">首页</a></li>
+
+	<li class="nav-item">
+		<a href="../job/job.php?lang=cn&amp;class2=36" title="加入我们" class="nav-link">加入我们</a>
+
+	</li>
+
+	<li class="nav-item">
+		<a href="../about/show.php?lang=cn&amp;id=98" title="联系我们" class="nav-link">联系我们</a>
+
+	</li>
+
+	<li class="nav-item dropdown">
+		<a href="../about/index.php?lang=cn" title="关于公司" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" 0="">关于公司</a>
+
+		<div class="dropdown-menu dropdown-menu-right animate">
+
+			<a href="../about/show.php?lang=cn&amp;id=19" class="dropdown-item" 0="" title="公司简介">公司简介</a>
+
+			<a href="../feedback/index.php?lang=cn" class="dropdown-item" title="线上反馈">线上反馈</a>
+
+			<a href="../job/job.php?lang=cn&amp;class2=36" class="dropdown-item" title="加入我们">加入我们</a>
+
+			<a href="../about/show.php?lang=cn&amp;id=98" class="dropdown-item" title="联系我们">联系我们</a>
+
+		</div>
+
+	</li>
+
+	<li class="nav-item dropdown">
+		<a href="../product/index.php?lang=cn" title="电子产品" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">电子产品</a>
+
+		<div class="dropdown-menu dropdown-menu-right animate">
+
+			<a href="../product/index.php?lang=cn" title="电子产品" class="dropdown-item nav-parent hidden-lg-up">电子产品</a>
+
+			<a href="../product/product.php?lang=cn&amp;class2=6" class="dropdown-item" title="热门手机">热门手机</a>
+
+			<a href="../product/product.php?lang=cn&amp;class2=7" class="dropdown-item" title="耳机音响">耳机音响</a>
+
+			<a href="../product/product.php?lang=cn&amp;class2=8" class="dropdown-item" title="手机配件">手机配件</a>
+
+			<a href="../product/product.php?lang=cn&amp;class2=9" class="dropdown-item" title="周边产品">周边产品</a>
+
+		</div>
+
+	</li>
+
+	<li class="nav-item dropdown">
+		<a href="../download/index.php?lang=cn" title="应用下载" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">应用下载</a>
+
+		<div class="dropdown-menu dropdown-menu-right animate">
+
+			<a href="../download/index.php?lang=cn" title="应用下载" class="dropdown-item nav-parent hidden-lg-up">应用下载</a>
+
+			<a href="../download/download.php?lang=cn&amp;class2=35" class="dropdown-item" title="One">One</a>
+
+			<a href="../download/download.php?lang=cn&amp;class2=120" class="dropdown-item" title="LIVE">LIVE</a>
+
+			<a href="../download/download.php?lang=cn&amp;class2=34" class="dropdown-item" title="Ideas">Ideas</a>
+
+			<a href="../download/download.php?lang=cn&amp;class2=119" class="dropdown-item" title="OS">OS</a>
+
+		</div>
+
+	</li>
+
+	<li class="nav-item dropdown">
+		<a href="../news/index.php?lang=cn" title="新闻中心" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">新闻中心</a>
+
+		<div class="dropdown-menu dropdown-menu-right animate">
+
+			<a href="../news/index.php?lang=cn" title="新闻中心" class="dropdown-item nav-parent hidden-lg-up">新闻中心</a>
+
+			<a href="../news/news.php?lang=cn&amp;class2=128" class="dropdown-item" title="新闻动态">新闻动态</a>
+
+			<a href="../news/news.php?lang=cn&amp;class2=5" class="dropdown-item" title="官网新闻">官网新闻</a>
+
+			<a href="../news/news.php?lang=cn&amp;class2=4" class="dropdown-item" title="最新资讯">最新资讯</a>
+
+			<a href="../news/news.php?lang=cn&amp;class2=121" class="dropdown-item" title="图片展示">图片展示</a>
+
+		</div>
+
+	</li>
+
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="page bg-pagebg1">
+	<div class="container">
+		<div class="page-content row">
+			<div class="panel">
+				<div class="panel-body tocar-info">
+					<div class="hidden-md-up h-10"></div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="media">
+							  <div class="media-left">
+								  <a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=34" title="入耳式耳机" target="_blank"><img class="media-object" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318045.jpg?x-oss-process=image/resize,m_fill,h_120,w_120,limit_0" alt="入耳式耳机"></a>
+							  </div>
+							  <div class="media-body">
+							  	<div class="hidden-md-up h-10"></div>
+								<h4 class="media-heading font-size-16"><a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=34" title="入耳式耳机" target="_blank">入耳式耳机</a> &nbsp;  &nbsp; 数量：1 件</h4>
+								<p class="font-size-20 green-800 m-b-0">已成功加入购物车！</p>
+							  </div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="text-md-right tocar-btn-body">
+								<a class="btn btn-default btn-lg btn-squared m-r-20" href="javascript:window.history.back()">继续购物</a>
+								<a class="btn btn-danger btn-lg btn-squared" href="https://show.metinfo.cn/muban/res018/323/shop/cart.php?lang=cn">去购物车结算</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<div class="m-t-50 text-xs-center moregoods">
+	<h2 class="font-size-24 blue-grey-400 text-shadow-none">购买该商品的用户还购买了</h2>
+	<ul class="blocks-2 blocks-md-2 blocks-lg-4 blocks-xxl-4 m-0 m-t-30 imagesize masonry moregoods-list" data-scale="1" style="position: relative; height: 1174.5px;">
+
+		<li class="masonry-child" style="position: absolute; left: 0px; top: 0px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=44" title="坚果Pro" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1495851624.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="坚果Pro" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1495851624.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=44" title="坚果Pro" target="_blank">坚果Pro</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">1499.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 327px; top: 0px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=48" title="矩形孔入耳式耳机" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1495701956.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="矩形孔入耳式耳机" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1495701956.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=48" title="矩形孔入耳式耳机" target="_blank">矩形孔入耳式耳机</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">149.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 655px; top: 0px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=35" title="车载充电器" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318188.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="车载充电器" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318188.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=35" title="车载充电器" target="_blank">车载充电器</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">249.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 982px; top: 0px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=40" title="官方T恤" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494317057.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="官方T恤" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494317057.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=40" title="官方T恤" target="_blank">官方T恤</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">149.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 0px; top: 391px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=38" title="官方T恤" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1495780766.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="官方T恤" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1495780766.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=38" title="官方T恤" target="_blank">官方T恤</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">149.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 327px; top: 391px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=42" title="入耳式耳机" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318045.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="入耳式耳机" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318045.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=42" title="入耳式耳机" target="_blank">入耳式耳机</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">199.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 655px; top: 391px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=34" title="入耳式耳机" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318045.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="入耳式耳机" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318045.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=34" title="入耳式耳机" target="_blank">入耳式耳机</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">199.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 982px; top: 391px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=43" title="车载充电器" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318188.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="车载充电器" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318188.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=43" title="车载充电器" target="_blank">车载充电器</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">49.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 0px; top: 783px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=46" title="钢化玻璃手感膜" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1495614880.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="钢化玻璃手感膜" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1495614880.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/product/showproduct.php?lang=cn&amp;id=46" title="钢化玻璃手感膜" target="_blank">钢化玻璃手感膜</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">49.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 327px; top: 783px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=37" title="智能蓝牙无限降噪耳机" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494317248.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="智能蓝牙无限降噪耳机" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494317248.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=37" title="智能蓝牙无限降噪耳机" target="_blank">智能蓝牙无限降噪耳机</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">149.00元</p>
+				</h4>
+			</div>
+		</li>
+
+		<li class="masonry-child" style="position: absolute; left: 655px; top: 783px;">
+			<div class="card card-shadow radius0 animation-fade appear-no-repeat" data-plugin="appear" data-animate="fade" data-repeat="false">
+				<figure class="card-header cover radius0">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=41" title="快充移动电源" target="_blank">
+						<img class="cover-image" data-original="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318266.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0" style="display: inline;" alt="快充移动电源" src="https://images.metinfo.cn/muban/res018/323/upload/201705/1494318266.jpg?x-oss-process=image/resize,m_fill,h_300,w_300,limit_0">
+					</a>
+				</figure>
+				<h4 class="card-title m-0 text-shadow-none font-size-16 font-weight-300">
+					<a href="https://show.metinfo.cn/muban/res018/323/hotproduct/showproduct.php?lang=cn&amp;id=41" title="快充移动电源" target="_blank">快充移动电源</a>
+					<p class="red-600 m-b-0 m-t-5 font-size-14">128.00元</p>
+				</h4>
+			</div>
+		</li>
+
+	</ul>
+</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="met-footnav p-y-20 border-top1">
+    <div class="container">
+        <ul class="blocks-2 blocks-sm-3 blocks-md-4 blocks-lg-5 blocks-xl-6 text-xs-center">
+
+            <li class="list m-y-5">
+                <h4 class="m-0 font-size-16"><a href="../about/index.php?lang=cn" 0="" title="关于公司">关于公司</a></h4>
+            </li>
+
+            <li class="list m-y-5">
+                <h4 class="m-0 font-size-16"><a href="../active/index.php?lang=cn" title="最新活动">最新活动</a></h4>
+            </li>
+
+            <li class="list m-y-5">
+                <h4 class="m-0 font-size-16"><a href="../product/index.php?lang=cn" title="电子产品">电子产品</a></h4>
+            </li>
+
+            <li class="list m-y-5">
+                <h4 class="m-0 font-size-16"><a href="../news/index.php?lang=cn" title="新闻中心">新闻中心</a></h4>
+            </li>
+
+            <li class="list m-y-5">
+                <h4 class="m-0 font-size-16"><a href="../service/index.php?lang=cn" title="服务支持">服务支持</a></h4>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<footer class="p-y-20 border-top1">
+    <div class="container text-xs-center">
+        <p>Copyright © 2017, MetInfo Digital Co., Ltd. All Rights Reserved. </p>
+<p>官方在线商城</p>
+
+        
+    </div>
+</footer>
+<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top" hidden=""><i class="icon wb-chevron-up" aria-hidden="true"></i></button>
+</body>
+</html>
